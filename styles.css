@@ -105,10 +105,6 @@ footer {
     padding: 15px;
   }
 
-  .header {
-    margin-bottom: 2rem;
-  }
-
   .story,
   .story2 {
     flex-direction: column;
