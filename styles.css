@@ -110,11 +110,8 @@ h2 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: url("images/hero-bg.jpg");
-  background-size: cover;
-  background-position: center;
   position: relative;
-  filter: grayscale(100%); /* Black-and-white effect */
+  font-family: sans-serif;
 }
 
 .hero::before {
@@ -135,6 +132,8 @@ h2 {
 
 .hero p {
   max-width: 35rem;
+  padding: 0;
+  margin: 0;
 }
 
 .bg-story1,
@@ -190,7 +189,6 @@ h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
 }
 
 .bg-story1 h2,
@@ -249,5 +247,11 @@ section {
   .paragraph {
     width: 80vw;
     margin: auto;
+  }
+
+  .hero p {
+    max-width: 35rem;
+    padding: 0;
+    margin: 0;
   }
 }
