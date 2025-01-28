@@ -4,7 +4,7 @@ body {
   color: #333;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 2rem;
+  padding-top: 2rem;
   padding-top: 0;
 }
 
@@ -43,7 +43,7 @@ h2 {
   font-size: xx-large;
 }
 
-.image-container {
+.video-container {
   max-width: 25rem;
   width: 50%;
   height: 15rem;
@@ -52,7 +52,7 @@ h2 {
   position: relative;
 }
 
-.image {
+.video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -60,6 +60,9 @@ h2 {
 
 .container {
   height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .image-paragraph-container {
@@ -87,32 +90,164 @@ h2 {
 
 .story2 {
   flex-direction: row-reverse;
+  color: #333;
+  box-shadow: 0;
 }
 
 .paragraph {
   max-width: 35em;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  filter: grayscale(100%); /* Black-and-white effect */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero h2,
+.hero p {
+  position: relative;
+  z-index: 2; /* Ensure text is above overlay */
+}
+
+.hero p {
+  max-width: 35rem;
+}
+
+.bg-story1,
+.bg-story2,
+.bg-story3,
+.bg-story4,
+.bg-story5,
+.bg-story6 {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Black-and-white effect */
+}
+
+.bg-story1 {
+  background-image: url("images/story1.jpeg");
+}
+
+.bg-story2 {
+  background-image: url("images/story2.jpeg");
+}
+
+.bg-story3 {
+  background-image: url("images/story3.jpeg");
+}
+
+.bg-story4 {
+  background-image: url("images/story4.jpg");
+}
+
+.bg-story5 {
+  background-image: url("images/story5.jpg");
+}
+
+.bg-story6 {
+  background-image: url("images/story6.jpg");
+}
+
+.bg-story1::before,
+.bg-story2::before,
+.bg-story3::before,
+.bg-story4::before,
+.bg-story5::before,
+.bg-story6::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.bg-story1 h2,
+.bg-story2 h2,
+.bg-story3 h2,
+.bg-story1 p,
+.bg-story2 p,
+.bg-story3 p {
+  position: relative;
+  z-index: 2; /* Ensure text appears above the overlay */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
 footer {
   text-align: center;
-  margin-top: 50px;
-  color: #7f8c8d;
+  padding: 2rem;
+  background-color: #333;
+  color: white;
+  margin-top: 2rem;
+}
+
+footer p {
+  margin: 0.5rem 0;
+}
+
+img,
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section {
+  min-height: 100vh;
+  height: fit-content;
 }
 
 @media (max-width: 768px) {
   body {
-    padding: 15px;
+    padding-top: 15px;
   }
 
   .story,
   .story2 {
     flex-direction: column;
     gap: 10px;
+    padding-top: 2rem;
   }
 
-  .image-container {
+  .video-container {
     max-width: 90%;
     width: 90%;
+  }
+
+  p,
+  .paragraph {
+    width: 80vw;
+    margin: auto;
   }
 }
