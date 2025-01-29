@@ -6,6 +6,7 @@ body {
   box-sizing: border-box;
   padding-top: 2rem;
   padding-top: 0;
+  background-color: #edece6;
 }
 
 .header {
@@ -15,6 +16,10 @@ body {
   padding-left: 2rem;
   justify-content: space-between;
   align-items: center;
+}
+
+.header h1 {
+  font-family: "Titillium Web", serif;
 }
 
 .logo-container {
@@ -59,7 +64,8 @@ h2 {
 }
 
 .container {
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -106,7 +112,7 @@ h2 {
 .hero {
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -127,13 +133,31 @@ h2 {
 .hero h2,
 .hero p {
   position: relative;
-  z-index: 2; /* Ensure text is above overlay */
+  z-index: 2;
+  font-family: "Titillium Web", serif;
+  text-align: left;
 }
 
 .hero p {
   max-width: 35rem;
   padding: 0;
   margin: 0;
+}
+
+.hero img {
+  height: 400px;
+  width: 400px;
+}
+
+.hero div {
+  width: 50%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding-left: 3rem;
 }
 
 .bg-story1,
@@ -231,11 +255,21 @@ section {
     padding-top: 15px;
   }
 
+  .header h1 {
+    font-size: medium;
+  }
+
+  .logo-container {
+    height: 30px;
+    width: 30px;
+  }
+
   .story,
   .story2 {
     flex-direction: column;
     gap: 10px;
-    padding-top: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   .video-container {
@@ -249,9 +283,28 @@ section {
     margin: auto;
   }
 
+  .hero {
+    flex-direction: column-reverse;
+    height: fit-content;
+    padding: 30px;
+  }
+
+  .hero div {
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+  }
+
   .hero p {
     max-width: 35rem;
     padding: 0;
     margin: 0;
+    text-align: center;
+  }
+
+  .hero h1 {
+    text-align: center;
   }
 }

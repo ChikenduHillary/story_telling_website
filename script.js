@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Select all headings and paragraphs and animate each one
-  document.querySelectorAll(".heading, .paragraph").forEach((element) => {
+  document.querySelectorAll(".heading, .paragraph, p").forEach((element) => {
     gsap.from(element, {
       y: 10,
       opacity: 0,
