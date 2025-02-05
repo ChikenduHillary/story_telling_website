@@ -4,7 +4,6 @@ body {
   color: #333;
   margin: 0 auto;
   box-sizing: border-box;
-  padding-top: 2rem;
   padding-top: 0;
   background-color: #edece6;
 }
@@ -124,6 +123,7 @@ h2 {
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  padding-top: 2rem;
 }
 
 /* Dark Overlay */
@@ -188,6 +188,7 @@ h2 {
   color: white;
   font-size: 1rem;
   transition: background 0.3s ease-in-out;
+  margin-top: 15px;
 }
 
 .hero a:hover {
