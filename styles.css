@@ -109,57 +109,365 @@ h2 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+/* Hero Background Container */
+.herobg {
   position: relative;
-  bottom: 5rem;
-  font-family: sans-serif;
-}
-
-.hero a {
-  text-decoration: none;
-  border: 1px solid #333;
-  padding: 5px;
-  margin-top: 20px;
-  border-radius: 50px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: #333;
-}
-
-.hero h2,
-.hero p {
-  position: relative;
-  z-index: 2;
-  font-family: "Titillium Web", serif;
-  text-align: center;
   width: 100%;
+  height: 100vh;
+  background-image: url("/images/your-background.jpg"); /* Update with your image path */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Dark Overlay */
+.herobg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust for desired darkness */
+  z-index: 1;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 2;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .hero p {
   max-width: 35rem;
-  padding: 0;
-  margin: 0;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
-.hero img {
-  height: 400px;
-  width: 400px;
+/* Button */
+.hero a {
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: white;
+  font-size: 1rem;
+  transition: background 0.3s ease-in-out;
 }
 
-.hero div {
-  width: 50%;
-  height: 100%;
-  margin: auto;
+.hero a:hover {
+  background: white;
+  color: black;
+}
+
+/* Logo Container (If you want to display the logo later) */
+.logo-container img {
+  height: 50px;
+}
+/* Hero Background Container */
+.herobg {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("/images/your-background.jpg"); /* Update with your image path */
+  background-size: cover;
+  background-position: center;
+  color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding-left: 3rem;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Dark Overlay */
+.herobg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust for desired darkness */
+  z-index: 1;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 2;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.hero p {
+  max-width: 35rem;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Button */
+.hero a {
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: white;
+  font-size: 1rem;
+  transition: background 0.3s ease-in-out;
+}
+
+.hero a:hover {
+  background: white;
+  color: black;
+}
+
+/* Logo Container (If you want to display the logo later) */
+.logo-container img {
+  height: 50px;
+}
+/* Hero Background Container */
+.herobg {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("/images/your-background.jpg"); /* Update with your image path */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Dark Overlay */
+.herobg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust for desired darkness */
+  z-index: 1;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 2;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.hero p {
+  max-width: 35rem;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Button */
+.hero a {
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: white;
+  font-size: 1rem;
+  transition: background 0.3s ease-in-out;
+}
+
+.hero a:hover {
+  background: white;
+  color: black;
+}
+
+/* Logo Container (If you want to display the logo later) */
+.logo-container img {
+  height: 50px;
+}
+/* Hero Background Container */
+.herobg {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("/images/story2.jpeg"); /* Update with your image path */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Dark Overlay */
+.herobg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust for desired darkness */
+  z-index: 1;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 2;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.hero p {
+  max-width: 35rem;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Button */
+.hero a {
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: white;
+  font-size: 1rem;
+  transition: background 0.3s ease-in-out;
+}
+
+.hero a:hover {
+  background: white;
+  color: black;
+}
+
+/* Logo Container (If you want to display the logo later) */
+.logo-container img {
+  height: 50px;
 }
 
 .bg-story1,

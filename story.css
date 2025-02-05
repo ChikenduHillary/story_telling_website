@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 10px;
   background-color: #f9f9f9;
+  scroll-behavior: smooth;
 }
 .title {
   font-size: larger;
@@ -63,7 +64,7 @@ button {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
-  background-color: #007bff;
+  background-color: #28a745; /* Changed to green */
   color: white;
   border: none;
   border-radius: 5px;
@@ -72,7 +73,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #218838; /* Darker green for hover */
 }
 
 /* Individual comment styling */
@@ -80,6 +81,6 @@ button:hover {
   background: white;
   padding: 8px;
   margin: 5px 0;
-  border-left: 4px solid #007bff;
+  border-left: 4px solid #28a745; /* Changed to green */
   border-radius: 5px;
 }

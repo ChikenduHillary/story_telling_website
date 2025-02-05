@@ -35,7 +35,7 @@
       .hamburger {
         width: 30px;
         height: 3px;
-        background: #333;
+        background: white;
         position: relative;
         transition: all 0.3s;
       }
@@ -46,7 +46,7 @@
         position: absolute;
         width: 30px;
         height: 3px;
-        background: #333;
+        background: white;
         transition: all 0.3s;
       }
 
@@ -65,11 +65,13 @@
       .nav-toggle.active .hamburger::before {
         transform: rotate(45deg);
         top: 0;
+        background: #333;
       }
 
       .nav-toggle.active .hamburger::after {
         transform: rotate(-45deg);
         top: 0;
+        background: #333;
       }
 
       .nav-menu {
@@ -135,25 +137,27 @@
       </ul>
     </nav>
 
-    <header class="header">
-      <h1>StorySphere</h1>
-      <div class="logo-container">
-        <!-- <img src="images/futo.png" alt="futo logo" /> -->
-      </div>
-    </header>
+    <div class="herobg">
+      <header class="header">
+        <h1>StorySphere</h1>
+        <div class="logo-container">
+          <!-- <img src="images/futo.png" alt="futo logo" /> -->
+        </div>
+      </header>
 
-    <section class="hero">
-      <div>
-        <h2>Unveiling Academic Integrity</h2>
-        <p>
-          Dive into the hidden truths of academic life. Through real-life
-          stories, discover the consequences of malpractice and the lessons they
-          teach us. Together, let's champion honesty, integrity, and a brighter
-          academic future.
-        </p>
-        <a href="#story1">Start Reading</a>
-      </div>
-    </section>
+      <section class="hero">
+        <div>
+          <h2>Unveiling Academic Integrity</h2>
+          <p>
+            Dive into the hidden truths of academic life. Through real-life
+            stories, discover the consequences of malpractice and the lessons
+            they teach us. Together, let's champion honesty, integrity, and a
+            brighter academic future.
+          </p>
+          <a href="#story1">Start Reading</a>
+        </div>
+      </section>
+    </div>
 
     <main>
       <section id="story1" class="container bg-story1">
@@ -313,15 +317,14 @@
       <p>&copy; 2025 StorySphere. All rights reserved.</p>
       <p>Federal University of Technology Owerri</p>
     </footer>
-
-    <
     <script>
-      // Add this to your existing script.js or in a new script tag
       document.addEventListener("DOMContentLoaded", function () {
         const navToggle = document.querySelector(".nav-toggle");
         const navMenu = document.querySelector(".nav-menu");
 
-        navToggle.addEventListener("click", function () {
+        // Toggle menu on button click
+        navToggle.addEventListener("click", function (event) {
+          event.stopPropagation(); // Prevents triggering the document click event
           navToggle.classList.toggle("active");
           navMenu.classList.toggle("active");
         });
@@ -336,8 +339,26 @@
             navMenu.classList.remove("active");
           }
         });
+
+        // Enable smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
       });
     </script>
+
     <script src="/script.js"></script>
   </body>
 </html>

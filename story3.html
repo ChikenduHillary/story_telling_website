@@ -129,71 +129,99 @@
       </form>
     </section>
 
+    <!-- Add this in the head section -->
     <script>
-      document
-        .getElementById("comment-form")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          let commentInput = document
-            .getElementById("comment-input")
-            .value.trim();
-          let commentContainer = document.getElementById("comments-container");
-          let noCommentsMsg = document.getElementById("no-comments");
+      const STORY_ID = "story3"; // Unique identifier for this story
 
-          if (commentInput !== "") {
-            // Hide "no comments" message
-            if (noCommentsMsg) {
-              noCommentsMsg.style.display = "none";
-            }
+      // Function to load comments
+      async function loadComments() {
+        try {
+          const response = await fetch(
+            `https://storyphere-backend.onrender.com/api/comments/${STORY_ID}`
+          );
+          const comments = await response.json();
 
-            // Create comment wrapper
-            let commentDiv = document.createElement("div");
-            commentDiv.classList.add("comment");
+          const commentContainer =
+            document.getElementById("comments-container");
+          const noCommentsMsg = document.getElementById("no-comments");
 
-            // Create comment text
-            let commentText = document.createElement("p");
-            commentText.textContent = commentInput;
+          commentContainer.innerHTML = "";
 
-            // Create timestamp
-            let commentDate = document.createElement("span");
-            commentDate.classList.add("comment-date");
-            commentDate.textContent = getFormattedDate();
+          if (comments.length === 0) {
+            noCommentsMsg.style.display = "block";
+          } else {
+            noCommentsMsg.style.display = "none";
 
-            // Append elements
-            commentDiv.appendChild(commentText);
-            commentDiv.appendChild(commentDate);
-            commentContainer.appendChild(commentDiv);
+            comments.forEach((comment) => {
+              const commentDiv = document.createElement("div");
+              commentDiv.classList.add("comment");
 
-            // Clear input field
-            document.getElementById("comment-input").value = "";
+              const commentText = document.createElement("p");
+              commentText.textContent = comment.content;
+
+              const commentDate = document.createElement("span");
+              commentDate.classList.add("comment-date");
+              commentDate.textContent = new Date(
+                comment.createdAt
+              ).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                hour12: true,
+              });
+
+              commentDiv.appendChild(commentText);
+              commentDiv.appendChild(commentDate);
+              commentContainer.appendChild(commentDiv);
+            });
           }
-        });
-
-      function getFormattedDate() {
-        let now = new Date();
-        let options = {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-          hour: "numeric",
-          minute: "numeric",
-          hour12: true,
-        };
-        return now.toLocaleDateString("en-US", options);
-      }
-
-      function checkComments() {
-        let commentContainer = document.getElementById("comments-container");
-        let noCommentsMsg = document.getElementById("no-comments");
-
-        if (commentContainer.children.length === 0) {
-          noCommentsMsg.style.display = "block";
-        } else {
-          noCommentsMsg.style.display = "none";
+        } catch (error) {
+          console.error("Error loading comments:", error);
         }
       }
 
-      checkComments(); // Run check on page load
+      // Function to add a new comment
+      document
+        .getElementById("comment-form")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const commentInput = document
+            .getElementById("comment-input")
+            .value.trim();
+
+          if (commentInput !== "") {
+            try {
+              const response = await fetch(
+                "http://localhost:5000/api/comments",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    storyId: STORY_ID,
+                    content: commentInput,
+                  }),
+                }
+              );
+
+              if (response.ok) {
+                document.getElementById("comment-input").value = "";
+                await loadComments(); // Reload comments after posting
+              } else {
+                console.error("Failed to post comment");
+              }
+            } catch (error) {
+              console.error("Error posting comment:", error);
+            }
+          }
+        });
+
+      // Load comments when page loads
+      document.addEventListener("DOMContentLoaded", loadComments);
     </script>
   </body>
 </html>
