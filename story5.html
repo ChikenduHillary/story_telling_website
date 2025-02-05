@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Story 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="story.css" />
+    <style>
+      .no-comments {
+        color: gray;
+        font-style: italic;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .comment {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+      .comment-date {
+        font-size: 0.8em;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <video class="video story-image" controls>
+        <source
+          src="videos/Fear_of_GhostWriting__Feat._Lindsay_Ellis_____It_s_Lit!___PBS_Digital_Studios(720p).mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+      <p class="title">The Ghostwriter</p>
+      <p>
+        Sarah was an accomplished writer, with a passion for creative expression
+        and a talent for crafting engaging stories. She had always excelled in
+        her English classes, earning high grades and praise from her professors.
+        However, despite her strengths in writing, Sarah struggled with
+        economics. She found the subject dry and difficult to understand, and no
+        matter how hard she tried, she just couldn't seem to grasp the
+        concepts.<br /><br />
+
+        As the semester drew to a close, Sarah found herself facing a daunting
+        task: a final paper in economics. She knew that she needed to do well on
+        the paper in order to pass the class, but she was struggling to come up
+        with ideas and organize her thoughts. Feeling desperate and overwhelmed,
+        Sarah turned to her friend Tom for help.<br /><br />
+
+        Tom was a economics whiz, and Sarah knew that he would be able to help
+        her write a top-notch paper. She asked him if he would be willing to
+        write the paper for her, and Tom agreed - but only if Sarah paid him a
+        substantial sum of money. Sarah was hesitant at first, but her desire to
+        pass the class and avoid failure ultimately won out. She reluctantly
+        agreed to Tom's terms, and he set to work writing the paper.<br /><br />
+
+        When the paper was complete, Sarah was impressed. Tom had done an
+        excellent job, and the paper was well-written and well-researched. Sarah
+        felt a wave of relief wash over her as she submitted the paper, thinking
+        that she had finally evaded trouble. But little did she know, her
+        troubles were only just beginning.<br /><br />
+
+        A few days after submitting the paper, Sarah received an email from her
+        professor, requesting that she come in for an oral exam. Sarah was
+        nervous but confident, thinking that she had done well on the paper and
+        would be able to answer any questions her professor might have. But as
+        she sat down in the exam room, Sarah began to feel a sense of unease.
+        Her professor asked her a few probing questions about the paper, and
+        Sarah found herself struggling to answer.<br /><br />
+
+        At first, Sarah's professor seemed friendly and supportive, but as the
+        exam wore on, his demeanor changed. He grew increasingly suspicious,
+        asking Sarah more and more pointed questions about the paper. Sarah
+        tried her best to answer, but she found herself getting more and more
+        flustered. She knew that she hadn't written the paper herself, and she
+        was terrified that her professor would discover the truth.<br /><br />
+
+        Finally, the exam came to a close, and Sarah's professor dismissed her.
+        But as she left the exam room, Sarah couldn't shake the feeling that she
+        was in trouble. She had a nagging sense of guilt and anxiety, and she
+        knew that she had made a terrible mistake.<br /><br />
+
+        A few days later, Sarah received an email from the university's academic
+        integrity office. Her professor had reported his suspicions, and the
+        office was launching an inquiry into the matter. Sarah's degree was put
+        on hold pending the outcome of the hearing, and she was summoned to
+        appear before a panel of administrators.<br /><br />
+
+        Sarah was devastated. She had never intended to cheat, and she had never
+        meant to put her degree at risk. She knew that she had made a mistake,
+        and she was willing to face the consequences. But as she sat down to
+        prepare for the hearing, Sarah couldn't help but feel a sense of regret
+        and disappointment. She had let herself and her university down, and she
+        knew that she would have to live with the consequences of her actions
+        for a long time to come.<br /><br />
+
+        As the hearing approached, Sarah's anxiety grew. She knew that she had
+        to be honest and take responsibility for her actions, but she was afraid
+        of the consequences. She was afraid of being expelled, of losing her
+        degree, and of damaging her reputation. But most of all, she was afraid
+        of facing her own guilt and shame.<br /><br />
+
+        The day of the hearing arrived, and Sarah sat down before the panel of
+        administrators. She took a deep breath and began to tell her story,
+        explaining how she had struggled with economics and how she had turned
+        to Tom for help. She admitted to paying Tom to write the paper, and she
+        took full responsibility for her actions.<br /><br />
+
+        The administrators listened attentively, their faces stern and
+        unyielding. When Sarah finished speaking, they asked her a few
+        questions, probing for more information and clarification. Sarah
+        answered honestly, doing her best to explain her actions and apologize
+        for her mistakes.<br /><br />
+
+        Finally, the hearing came to a close, and the administrators retired to
+        deliberate. Sarah was left to wait, her fate hanging in the balance. She
+        knew that she had made a mistake, and she was willing to face the
+        consequences. But as she sat there, waiting for the verdict, Sarah
+        couldn't help but feel a sense of hope and redemption. She knew that she
+        had learned a valuable lesson, and she was determined to move forward,
+        wiser and more integrity-driven than ever before.<br /><br />
+      </p>
+    </section>
+
+    <section class="comments-section">
+      <h2>Comments</h2>
+      <div id="no-comments" class="no-comments">
+        Be the first to add a comment!
+      </div>
+      <div id="comments-container"></div>
+      <form id="comment-form">
+        <textarea
+          id="comment-input"
+          placeholder="Write your comment here..."
+        ></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+    </section>
+
+    <script>
+      document
+        .getElementById("comment-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          let commentInput = document
+            .getElementById("comment-input")
+            .value.trim();
+          let commentContainer = document.getElementById("comments-container");
+          let noCommentsMsg = document.getElementById("no-comments");
+
+          if (commentInput !== "") {
+            // Hide "no comments" message
+            if (noCommentsMsg) {
+              noCommentsMsg.style.display = "none";
+            }
+
+            // Create comment wrapper
+            let commentDiv = document.createElement("div");
+            commentDiv.classList.add("comment");
+
+            // Create comment text
+            let commentText = document.createElement("p");
+            commentText.textContent = commentInput;
+
+            // Create timestamp
+            let commentDate = document.createElement("span");
+            commentDate.classList.add("comment-date");
+            commentDate.textContent = getFormattedDate();
+
+            // Append elements
+            commentDiv.appendChild(commentText);
+            commentDiv.appendChild(commentDate);
+            commentContainer.appendChild(commentDiv);
+
+            // Clear input field
+            document.getElementById("comment-input").value = "";
+          }
+        });
+
+      function getFormattedDate() {
+        let now = new Date();
+        let options = {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        };
+        return now.toLocaleDateString("en-US", options);
+      }
+
+      function checkComments() {
+        let commentContainer = document.getElementById("comments-container");
+        let noCommentsMsg = document.getElementById("no-comments");
+
+        if (commentContainer.children.length === 0) {
+          noCommentsMsg.style.display = "block";
+        } else {
+          noCommentsMsg.style.display = "none";
+        }
+      }
+
+      checkComments(); // Run check on page load
+    </script>
+  </body>
+</html>

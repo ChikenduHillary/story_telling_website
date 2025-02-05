@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Story 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="story.css" />
+    <style>
+      .no-comments {
+        color: gray;
+        font-style: italic;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .comment {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+      .comment-date {
+        font-size: 0.8em;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <img src="/images/story4.jpeg" alt="Story 1 Image" class="story-image" />
+      <p class="title">The Exam Sabotage</p>
+      <p>
+        It was a typical morning on campus, with students rushing to their
+        respective exam halls, clutching their notes and textbooks. David, a
+        diligent and hardworking student, was no exception. He had spent
+        countless hours studying for this exam, and he was determined to do his
+        best. As he settled into his seat and began to read through the exam
+        questions, David noticed something peculiar. A group of students sitting
+        nearby were passing around small notes, their eyes darting back and
+        forth as they whispered to each other. David's instincts told him that
+        something was amiss, and he quickly realized that these students were
+        cheating. David's initial reaction was to ignore the situation and focus
+        on his own exam. However, as he thought about the implications of
+        cheating, he knew that he couldn't just sit back and do nothing. He
+        remembered the countless hours he had spent studying, the sacrifices he
+        had made, and the importance of earning his grade honestly. With a sense
+        of determination, David quietly got up from his seat and made his way to
+        the professor's desk. He discreetly informed the professor about the
+        cheating, pointing out the students who were involved. The professor,
+        taken aback by the revelation, quickly took action, confiscating the
+        notes and warning the students that they would face severe consequences
+        if found guilty of cheating. The exam continued, but the atmosphere in
+        the hall had changed. The students who had been caught cheating were
+        visibly shaken, and their friends were whispering among themselves,
+        casting suspicious glances at David. As the exam came to a close, David
+        felt a sense of relief wash over him. He had done the right thing, and
+        he knew that his integrity was intact. However, as he left the exam
+        hall, David was met with a surprise. The students who had been caught
+        cheating were standing outside, their faces twisted in anger and
+        resentment. They began to shout at David, accusing him of being a snitch
+        and a traitor. They claimed that he had ruined their lives and that they
+        would never forgive him. As the days went by, the situation only got
+        worse. The cheating students began to spread rumors about David across
+        campus, telling everyone that he was a tattletale and a goody-goody.
+        They claimed that he had only reported them because he was jealous of
+        their success. The rumors spread like wildfire, and soon, David found
+        himself being shunned by his peers. Despite his best efforts to ignore
+        the rumors and focus on his studies, David couldn't shake off the
+        feeling of isolation. He had done the right thing, but it had come at a
+        great cost. He had lost friendships, and he was now an outcast among his
+        peers. As the semester drew to a close, David couldn't help but wonder
+        if reporting the cheating had been worth it. He had upheld his
+        integrity, but at what cost? He had lost the respect and admiration of
+        his peers, and he was now a lonely and isolated figure on campus.<br /><br />
+
+        Despite his doubts, David knew that he had done the right thing. He had
+        stood up for what was right, even when it was difficult. He had refused
+        to compromise his values, even when it meant facing ridicule and
+        isolation.<br /><br />
+
+        As he walked across campus, David felt a sense of pride and
+        satisfaction. He knew that he had upheld his integrity, and that he
+        could hold his head high. He also knew that he had learned a valuable
+        lesson about the importance of standing up for what is right, even when
+        it is difficult.<br /><br />
+
+        The experience had been painful, but it had also been transformative.
+        David had discovered a strength and resilience within himself that he
+        never knew he had. He had learned to stand up for himself and for what
+        he believed in, even when it meant facing opposition and ridicule.<br /><br />
+
+        As he looked to the future, David knew that he would carry the lessons
+        of this experience with him. He would continue to stand up for what was
+        right, even when it was difficult. He would continue to uphold his
+        integrity, even when it meant facing challenges and obstacles. And he
+        would always remember the exam sabotage, and the valuable lessons he had
+        learned from it.<br /><br />
+
+        Years later, David would look back on this experience with a sense of
+        pride and satisfaction. He would remember the difficult days and the
+        painful lessons, but he would also remember the strength and resilience
+        he had discovered within himself. He would know that he had done the
+        right thing, and that he had upheld his integrity, even when it was
+        difficult. And as he walked across campus, David would smile to himself,
+        knowing that he had truly learned the value of integrity, and the
+        importance of standing up for what is right, even when it is difficult.
+      </p>
+    </section>
+
+    <section class="comments-section">
+      <h2>Comments</h2>
+      <div id="no-comments" class="no-comments">
+        Be the first to add a comment!
+      </div>
+      <div id="comments-container"></div>
+      <form id="comment-form">
+        <textarea
+          id="comment-input"
+          placeholder="Write your comment here..."
+        ></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+    </section>
+
+    <script>
+      document
+        .getElementById("comment-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          let commentInput = document
+            .getElementById("comment-input")
+            .value.trim();
+          let commentContainer = document.getElementById("comments-container");
+          let noCommentsMsg = document.getElementById("no-comments");
+
+          if (commentInput !== "") {
+            // Hide "no comments" message
+            if (noCommentsMsg) {
+              noCommentsMsg.style.display = "none";
+            }
+
+            // Create comment wrapper
+            let commentDiv = document.createElement("div");
+            commentDiv.classList.add("comment");
+
+            // Create comment text
+            let commentText = document.createElement("p");
+            commentText.textContent = commentInput;
+
+            // Create timestamp
+            let commentDate = document.createElement("span");
+            commentDate.classList.add("comment-date");
+            commentDate.textContent = getFormattedDate();
+
+            // Append elements
+            commentDiv.appendChild(commentText);
+            commentDiv.appendChild(commentDate);
+            commentContainer.appendChild(commentDiv);
+
+            // Clear input field
+            document.getElementById("comment-input").value = "";
+          }
+        });
+
+      function getFormattedDate() {
+        let now = new Date();
+        let options = {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        };
+        return now.toLocaleDateString("en-US", options);
+      }
+
+      function checkComments() {
+        let commentContainer = document.getElementById("comments-container");
+        let noCommentsMsg = document.getElementById("no-comments");
+
+        if (commentContainer.children.length === 0) {
+          noCommentsMsg.style.display = "block";
+        } else {
+          noCommentsMsg.style.display = "none";
+        }
+      }
+
+      checkComments(); // Run check on page load
+    </script>
+  </body>
+</html>

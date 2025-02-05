@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Story 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="story.css" />
+    <style>
+      .no-comments {
+        color: gray;
+        font-style: italic;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .comment {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+      .comment-date {
+        font-size: 0.8em;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <img src="/images/story5.jpeg" alt="Story 1 Image" class="story-image" />
+      <p class="title">The Group Project Nightmare</p>
+      <p>
+        Maria had always been a diligent and hardworking student, and when she
+        was assigned a group project for her sociology class, she was determined
+        to do her best. She was paired with two other students, Jake and Ella,
+        and the three of them were tasked with researching and writing a report
+        on a specific topic. From the very beginning, Maria took charge of the
+        project, dividing up the tasks and setting deadlines for each member of
+        the group. She spent hours researching and writing, pouring her heart
+        and soul into the project. Meanwhile, Jake and Ella seemed to be doing
+        very little. They would occasionally send Maria a brief email or text,
+        asking her to do more work or making vague promises to contribute to the
+        project, but they never followed through. As the deadline for the
+        project approached, Maria grew increasingly frustrated with her
+        partners. She had done all of the work, and yet Jake and Ella seemed to
+        be taking credit for her efforts. She tried to talk to them about it,
+        but they just shrugged her off, telling her that she was being too
+        uptight. Finally, the day of the project's submission arrived. Maria had
+        worked tirelessly to put the finishing touches on the report, and she
+        was proud of what she had accomplished. But when she arrived at class,
+        she was shocked to discover that Jake had handed in a different version
+        of the report, with his and Ella's names listed first. Maria's name was
+        relegated to the bottom of the page, and it was clear that Jake and Ella
+        were trying to take credit for her work. Maria was furious. She felt
+        betrayed by her partners and angry that they were trying to steal her
+        thunder. She decided to report the incident to the professor, hoping
+        that he would take action against Jake and Ella. But when Maria met with
+        the professor, she realized that she had no evidence to support her
+        claims. She had not kept a record of her contributions to the project,
+        and she had not documented the numerous times that Jake and Ella had
+        failed to follow through on their commitments. Without evidence, the
+        professor was unable to lower Jake and Ella's grades, and Maria was left
+        feeling frustrated and powerless. As she looked back on the experience,
+        Maria realized that she had made a critical mistake. She had not
+        documented her contributions to the project, and she had not kept a
+        record of her interactions with Jake and Ella. This had left her
+        vulnerable to their attempts to take credit for her work, and it had
+        made it impossible for her to prove her case.<br /><br />
+
+        Maria's experience was a valuable lesson in the importance of
+        documentation. She learned that it was essential to keep a record of her
+        contributions to group projects, and to document any issues that arose
+        during the course of the project. This would help to prevent situations
+        like the one she had faced, and it would provide her with the evidence
+        she needed to stand up against academic dishonesty.<br /><br />
+
+        As Maria moved forward, she was determined to apply the lessons she had
+        learned. She made a point to document her contributions to group
+        projects, and she was careful to keep a record of any issues that arose.
+        This helped her to avoid similar situations in the future, and it gave
+        her the confidence she needed to stand up for herself and her work.<br /><br />
+
+        In the end, Maria's experience with the group project was a difficult
+        but valuable lesson. She learned the importance of documentation, and
+        she gained the confidence she needed to stand up against academic
+        dishonesty. She emerged from the experience stronger and wiser, and she
+        was better equipped to handle the challenges that lay ahead.<br /><br />
+
+        The experience had also taught Maria the importance of communication and
+        teamwork in group projects. She realized that it was essential to
+        establish clear expectations and guidelines at the beginning of the
+        project, and to maintain open and honest communication with her team
+        members throughout. This would help to prevent misunderstandings and
+        conflicts, and it would ensure that everyone was working together
+        towards a common goal.<br /><br />
+
+        As Maria reflected on her experience, she was reminded of the importance
+        of integrity and honesty in academic pursuits. She realized that
+        academic dishonesty was not only unfair to others, but it also
+        undermined the value of education and the integrity of the academic
+        community. She was determined to uphold the highest standards of
+        integrity and honesty in her own academic pursuits, and to encourage
+        others to do the same.<br /><br />
+
+        In conclusion, Maria's experience with the group project was a
+        challenging but valuable lesson. She learned the importance of
+        documentation, communication, and teamwork, and she gained the
+        confidence she needed to stand up against academic dishonesty. She
+        emerged from the experience stronger and wiser, and she was better
+        equipped to handle the challenges that lay ahead.
+      </p>
+    </section>
+
+    <section class="comments-section">
+      <h2>Comments</h2>
+      <div id="no-comments" class="no-comments">
+        Be the first to add a comment!
+      </div>
+      <div id="comments-container"></div>
+      <form id="comment-form">
+        <textarea
+          id="comment-input"
+          placeholder="Write your comment here..."
+        ></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+    </section>
+
+    <script>
+      document
+        .getElementById("comment-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          let commentInput = document
+            .getElementById("comment-input")
+            .value.trim();
+          let commentContainer = document.getElementById("comments-container");
+          let noCommentsMsg = document.getElementById("no-comments");
+
+          if (commentInput !== "") {
+            // Hide "no comments" message
+            if (noCommentsMsg) {
+              noCommentsMsg.style.display = "none";
+            }
+
+            // Create comment wrapper
+            let commentDiv = document.createElement("div");
+            commentDiv.classList.add("comment");
+
+            // Create comment text
+            let commentText = document.createElement("p");
+            commentText.textContent = commentInput;
+
+            // Create timestamp
+            let commentDate = document.createElement("span");
+            commentDate.classList.add("comment-date");
+            commentDate.textContent = getFormattedDate();
+
+            // Append elements
+            commentDiv.appendChild(commentText);
+            commentDiv.appendChild(commentDate);
+            commentContainer.appendChild(commentDiv);
+
+            // Clear input field
+            document.getElementById("comment-input").value = "";
+          }
+        });
+
+      function getFormattedDate() {
+        let now = new Date();
+        let options = {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        };
+        return now.toLocaleDateString("en-US", options);
+      }
+
+      function checkComments() {
+        let commentContainer = document.getElementById("comments-container");
+        let noCommentsMsg = document.getElementById("no-comments");
+
+        if (commentContainer.children.length === 0) {
+          noCommentsMsg.style.display = "block";
+        } else {
+          noCommentsMsg.style.display = "none";
+        }
+      }
+
+      checkComments(); // Run check on page load
+    </script>
+  </body>
+</html>

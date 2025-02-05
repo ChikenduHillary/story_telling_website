@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Story 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="story.css" />
+    <style>
+      .no-comments {
+        color: gray;
+        font-style: italic;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .comment {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+      .comment-date {
+        font-size: 0.8em;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <img src="/images/story6.jpeg" alt="Story 1 Image" class="story-image" />
+      <p class="title">The Professor's Shortcut</p>
+      <p>
+        Dr. Lewis was a renowned professor in his field, known for his
+        groundbreaking research and publications. He had spent years building
+        his reputation as a leading expert, and his work had been widely cited
+        and respected. However, despite his success, Dr. Lewis had grown tired
+        of the tedious process of writing papers. He felt that the time and
+        effort required to produce high-quality research articles was taking
+        away from his ability to focus on the actual research itself.<br /><br />
+
+        To alleviate this burden, Dr. Lewis decided to hire an undergraduate
+        student, Andrew, to assist him with writing sections of his research
+        articles. Andrew was a bright and ambitious student, eager to gain
+        experience and build his resume. Dr. Lewis saw an opportunity to mentor
+        Andrew and help him develop his writing skills, while also freeing up
+        more time for himself to focus on the research.<br /><br />
+
+        At first, the arrangement seemed to be working well. Andrew was
+        producing high-quality work, and Dr. Lewis was able to focus more on the
+        research itself. However, what Dr. Lewis didn't anticipate was Andrew's
+        tendency to take shortcuts. Andrew, eager to impress Dr. Lewis and
+        complete the work quickly, began to copy large parts of the material
+        from previously published work. He didn't think that anyone would
+        notice, and he believed that the ends justified the means.<br /><br />
+
+        But, as fate would have it, the plagiarized material was soon discovered
+        by a colleague of Dr. Lewis. The colleague, who had been reviewing one
+        of Dr. Lewis's recent publications, noticed that several sections of the
+        article seemed eerily familiar. Upon further investigation, the
+        colleague discovered that the material had been lifted from a previously
+        published paper, without proper citation or credit.<br /><br />
+
+        The news of the plagiarism scandal sent shockwaves through the academic
+        community. Dr. Lewis was forced to retire early, his reputation
+        tarnished by the discovery of plagiarism in his work. Andrew, on the
+        other hand, faced expulsion from the university and legal action for his
+        role in the scandal.<br /><br />
+
+        As the investigation unfolded, it became clear that Dr. Lewis had been
+        unaware of Andrew's actions. However, he was still held accountable for
+        the plagiarism, as he had been the one to hire Andrew and oversee the
+        work. Dr. Lewis was devastated by the outcome, feeling that his
+        reputation had been unfairly tarnished. He had always been a meticulous
+        researcher, and he had never intentionally plagiarized anyone's work.<br /><br />
+
+        Andrew, on the other hand, was filled with regret and remorse. He had
+        never intended to cause harm, and he had not realized the severity of
+        his actions. He had been so focused on impressing Dr. Lewis and
+        completing the work quickly that he had lost sight of the importance of
+        academic integrity.<br /><br />
+
+        In the end, the plagiarism scandal served as a cautionary tale about the
+        importance of academic integrity. It highlighted the need for
+        researchers to be vigilant in ensuring the originality of their work,
+        and for students to understand the severity of plagiarism. Dr. Lewis's
+        reputation was forever tarnished, and Andrew's academic career was left
+        in tatters. But, as they both looked back on the experience, they knew
+        that they had learned a valuable lesson about the importance of honesty
+        and integrity in academic pursuits.<br /><br />
+
+        The aftermath of the scandal was difficult for both Dr. Lewis and
+        Andrew. Dr. Lewis struggled to come to terms with the damage that had
+        been done to his reputation. He had always been a proud man, and the
+        thought of being associated with plagiarism was almost too much to bear.
+        He spent many sleepless nights wondering how he could have been so
+        blind, and how he could have let Andrew's actions go undetected for so
+        long.<br /><br />
+
+        Andrew, on the other hand, was filled with regret and remorse. He had
+        never intended to cause harm, and he had not realized the severity of
+        his actions. He spent many hours reflecting on his mistakes, and
+        wondering how he could have been so foolish. He knew that he had let
+        himself and others down, and he was determined to make amends.<br /><br />
+
+        As the months went by, Dr. Lewis and Andrew both began to rebuild their
+        lives. Dr. Lewis started to focus
+      </p>
+    </section>
+
+    <section class="comments-section">
+      <h2>Comments</h2>
+      <div id="no-comments" class="no-comments">
+        Be the first to add a comment!
+      </div>
+      <div id="comments-container"></div>
+      <form id="comment-form">
+        <textarea
+          id="comment-input"
+          placeholder="Write your comment here..."
+        ></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+    </section>
+
+    <script>
+      document
+        .getElementById("comment-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          let commentInput = document
+            .getElementById("comment-input")
+            .value.trim();
+          let commentContainer = document.getElementById("comments-container");
+          let noCommentsMsg = document.getElementById("no-comments");
+
+          if (commentInput !== "") {
+            // Hide "no comments" message
+            if (noCommentsMsg) {
+              noCommentsMsg.style.display = "none";
+            }
+
+            // Create comment wrapper
+            let commentDiv = document.createElement("div");
+            commentDiv.classList.add("comment");
+
+            // Create comment text
+            let commentText = document.createElement("p");
+            commentText.textContent = commentInput;
+
+            // Create timestamp
+            let commentDate = document.createElement("span");
+            commentDate.classList.add("comment-date");
+            commentDate.textContent = getFormattedDate();
+
+            // Append elements
+            commentDiv.appendChild(commentText);
+            commentDiv.appendChild(commentDate);
+            commentContainer.appendChild(commentDiv);
+
+            // Clear input field
+            document.getElementById("comment-input").value = "";
+          }
+        });
+
+      function getFormattedDate() {
+        let now = new Date();
+        let options = {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        };
+        return now.toLocaleDateString("en-US", options);
+      }
+
+      function checkComments() {
+        let commentContainer = document.getElementById("comments-container");
+        let noCommentsMsg = document.getElementById("no-comments");
+
+        if (commentContainer.children.length === 0) {
+          noCommentsMsg.style.display = "block";
+        } else {
+          noCommentsMsg.style.display = "none";
+        }
+      }
+
+      checkComments(); // Run check on page load
+    </script>
+  </body>
+</html>

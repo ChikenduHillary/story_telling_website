@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Story 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="story.css" />
+    <style>
+      .no-comments {
+        color: gray;
+        font-style: italic;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .comment {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+      .comment-date {
+        font-size: 0.8em;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <video class="video story-image" controls>
+        <source
+          src="videos/Real_Stories_of_Plagiarism___RMIT_University(720p).mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+      <p class="title">The Stolen Thesis</p>
+      <p>
+        James had spent months pouring his heart and soul into his thesis. He
+        had dedicated countless hours to researching, writing, and editing, and
+        he was finally ready to submit his work. As he was making the final
+        preparations, his friend Alex approached him and asked if he could take
+        a quick look at the thesis for inspiration. Alex was also working on his
+        own thesis, and James, trusting his friend, handed over his work without
+        hesitation. A few weeks went by, and James had all but forgotten about
+        lending his thesis to Alex. He was busy preparing for his defense and
+        making final revisions to his work. But then, something strange
+        happened. James received an email from a fellow student, congratulating
+        him on his "excellent" thesis. James was confused, as he hadn't shared
+        his work with anyone except Alex. He asked the student how they had seen
+        his thesis, and the student replied that they had read it in a paper
+        submitted by Alex to another professor. James felt like he had been
+        punched in the gut. He couldn't believe that Alex, his friend and
+        colleague, had stolen his work. He immediately confronted Alex, who
+        denied everything. Alex claimed that he had written his own thesis, and
+        that any similarities between the two papers were just coincidence.
+        James was furious, and he demanded that Alex tell the truth. But Alex
+        continued to deny any wrongdoing, leaving James feeling frustrated and
+        betrayed. The situation escalated quickly, and both James and Alex were
+        called into the dean's office for an investigation. The dean listened to
+        both sides of the story, and then reviewed the two theses. It didn't
+        take long for the dean to realize that Alex had indeed plagiarized
+        James's work. The similarities between the two papers were too striking
+        to be mere coincidence. As a result of the investigation, Alex was
+        expelled from the university. James, on the other hand, was left to pick
+        up the pieces of his shattered reputation. Despite being the victim of
+        plagiarism, James couldn't shake the feeling that he was somehow to
+        blame. He wondered if he had been naive to trust Alex, and if he should
+        have been more careful with his work.<br /><br />
+
+        The ordeal had a profound impact on James. He became more guarded and
+        less trusting, always looking over his shoulder, wondering if someone
+        was going to steal his work again. He also became more withdrawn,
+        avoiding social situations and preferring to work alone. James's
+        reputation had been forever stained by the plagiarism scandal, and he
+        struggled to regain his confidence and credibility.<br /><br />
+
+        As time went on, James began to rebuild his life and his reputation. He
+        continued to work hard, producing excellent research and earning the
+        respect of his peers. But the memory of the stolen thesis never faded,
+        and James always looked back on the experience with a mix of sadness and
+        regret.<br /><br />
+
+        Years later, James would look back on the experience and realize that it
+        had taught him a valuable lesson. He had learned the importance of
+        protecting his work and being mindful of who he trusted. He had also
+        learned that even in the face of adversity, he had the strength and
+        resilience to overcome any obstacle.<br /><br />
+
+        The stolen thesis had been a difficult and painful experience, but it
+        had also been a transformative one. James had emerged from the ordeal a
+        stronger, wiser, and more cautious person. He had learned to appreciate
+        the value of his work and to protect it at all costs. And he had learned
+        that even in the darkest of times, there is always hope for redemption
+        and renewal.<br /><br />
+
+        As James looked back on the experience, he couldn't help but feel a
+        sense of gratitude. He was grateful for the lesson he had learned, and
+        for the strength and resilience he had discovered within himself. He was
+        grateful for the opportunity to rebuild his reputation and to emerge
+        from the ordeal a stronger and wiser person. And he was grateful for the
+        reminder that even in the face of adversity, he always had the power to
+        choose how he would respond.<br /><br />
+
+        In the end, the stolen thesis had been a blessing in disguise. It had
+        taught James a valuable lesson, and it had given him the strength and
+        resilience he needed to overcome any obstacle. James had emerged from
+        the ordeal a stronger, wiser, and more cautious person, and he would
+        always be grateful for the experience.<br /><br />
+      </p>
+    </section>
+
+    <section class="comments-section">
+      <h2>Comments</h2>
+      <div id="no-comments" class="no-comments">
+        Be the first to add a comment!
+      </div>
+      <div id="comments-container"></div>
+      <form id="comment-form">
+        <textarea
+          id="comment-input"
+          placeholder="Write your comment here..."
+        ></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+    </section>
+
+    <script>
+      document
+        .getElementById("comment-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          let commentInput = document
+            .getElementById("comment-input")
+            .value.trim();
+          let commentContainer = document.getElementById("comments-container");
+          let noCommentsMsg = document.getElementById("no-comments");
+
+          if (commentInput !== "") {
+            // Hide "no comments" message
+            if (noCommentsMsg) {
+              noCommentsMsg.style.display = "none";
+            }
+
+            // Create comment wrapper
+            let commentDiv = document.createElement("div");
+            commentDiv.classList.add("comment");
+
+            // Create comment text
+            let commentText = document.createElement("p");
+            commentText.textContent = commentInput;
+
+            // Create timestamp
+            let commentDate = document.createElement("span");
+            commentDate.classList.add("comment-date");
+            commentDate.textContent = getFormattedDate();
+
+            // Append elements
+            commentDiv.appendChild(commentText);
+            commentDiv.appendChild(commentDate);
+            commentContainer.appendChild(commentDiv);
+
+            // Clear input field
+            document.getElementById("comment-input").value = "";
+          }
+        });
+
+      function getFormattedDate() {
+        let now = new Date();
+        let options = {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        };
+        return now.toLocaleDateString("en-US", options);
+      }
+
+      function checkComments() {
+        let commentContainer = document.getElementById("comments-container");
+        let noCommentsMsg = document.getElementById("no-comments");
+
+        if (commentContainer.children.length === 0) {
+          noCommentsMsg.style.display = "block";
+        } else {
+          noCommentsMsg.style.display = "none";
+        }
+      }
+
+      checkComments(); // Run check on page load
+    </script>
+  </body>
+</html>

@@ -20,12 +20,125 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      .nav-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+
+      .hamburger {
+        width: 30px;
+        height: 3px;
+        background: #333;
+        position: relative;
+        transition: all 0.3s;
+      }
+
+      .hamburger::before,
+      .hamburger::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 3px;
+        background: #333;
+        transition: all 0.3s;
+      }
+
+      .hamburger::before {
+        top: -8px;
+      }
+
+      .hamburger::after {
+        top: 8px;
+      }
+
+      .nav-toggle.active .hamburger {
+        background: transparent;
+      }
+
+      .nav-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+        top: 0;
+      }
+
+      .nav-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+        top: 0;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -400px;
+        width: 300px;
+        height: 100vh;
+        background: #fff;
+        padding: 80px 20px;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s;
+        z-index: 999;
+      }
+
+      .nav-menu.active {
+        right: 0;
+      }
+
+      .nav-menu ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .nav-menu li {
+        margin: 20px 0;
+      }
+
+      .nav-menu a {
+        color: #333;
+        text-decoration: none;
+        font-size: 1.1em;
+        transition: color 0.3s;
+      }
+
+      .nav-menu a:hover {
+        color: #007bff;
+      }
+
+      .read-more {
+        display: inline-block;
+        padding: 5px;
+        color: #007bff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+    </style>
   </head>
   <body>
+    <button class="nav-toggle">
+      <div class="hamburger"></div>
+    </button>
+
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="#story1">The Unseen Consequence</a></li>
+        <li><a href="#story2">The Exam Sabotage</a></li>
+        <li><a href="#story3">The Stolen Thesis</a></li>
+        <li><a href="#story4">The Group Project Nightmare</a></li>
+        <li><a href="#story5">The Ghostwriter</a></li>
+        <li><a href="#story6">The Professor's Shortcut</a></li>
+      </ul>
+    </nav>
+
     <header class="header">
       <h1>StorySphere</h1>
       <div class="logo-container">
-        <img src="images/futo.png" alt="futo logo" />
+        <!-- <img src="images/futo.png" alt="futo logo" /> -->
       </div>
     </header>
 
@@ -38,14 +151,12 @@
           teach us. Together, let's champion honesty, integrity, and a brighter
           academic future.
         </p>
-      </div>
-      <div class="hero-image">
-        <img src="images/hero.jpg" alt="" />
+        <a href="#story1">Start Reading</a>
       </div>
     </section>
 
     <main>
-      <section class="container bg-story1">
+      <section id="story1" class="container bg-story1">
         <article class="story">
           <div class="video-container">
             <video class="video" controls>
@@ -68,12 +179,13 @@
               submission as plagiarism, and Samantha lost her scholarship.
               Worse, her name spread through the academic community, leaving her
               blacklisted from graduate programs.
+              <a href="./story1.html" class="read-more">Read More</a>
             </p>
           </div>
         </article>
       </section>
 
-      <section class="container bg-story4">
+      <section id="story2" class="container bg-story4">
         <article class="story2">
           <div class="video-container">
             <img src="images/story4.jpeg" alt="" />
@@ -88,12 +200,13 @@
               though he did the right thing, David became an outcast among his
               peers. His integrity cost him friendships, and he began to
               question whether reporting the misconduct was worth the price.
+              <a href="./story2.html" class="read-more">Read More</a>
             </p>
           </div>
         </article>
       </section>
 
-      <section class="container bg-story2">
+      <section id="story3" class="container bg-story2">
         <article class="story">
           <div class="video-container">
             <video class="video" controls>
@@ -115,12 +228,13 @@
               him, but Alex denied everything. They were both called into the
               dean's office for an investigation, and while Alex was expelled,
               James's reputation was forever stained by the ordeal.
+              <a href="./story3.html" class="read-more">Read More</a>
             </p>
           </div>
         </article>
       </section>
 
-      <section class="container bg-story5">
+      <section id="story4" class="container bg-story5">
         <article class="story2">
           <div class="video-container">
             <img src="images/story5.jpeg" alt="" />
@@ -137,12 +251,13 @@
               the professor couldn't lower their grades. Maria realized too late
               that documentation was crucial in standing up against academic
               dishonesty.
+              <a href="./story4.html" class="read-more">Read More</a>
             </p>
           </div>
         </article>
       </section>
 
-      <section class="container bg-story3">
+      <section id="story5" class="container bg-story3">
         <article class="story">
           <div class="video-container">
             <video class="video" controls>
@@ -163,13 +278,15 @@
               professor asked a few probing questions that she couldn't answer.
               The professor grew suspicious and launched an inquiry. Sarah's
               degree was put on hold pending a disciplinary hearing, leaving her
-              future uncertain.
+              future uncertain.<a href="./story5.html" class="read-more"
+                >Read More</a
+              >
             </p>
           </div>
         </article>
       </section>
 
-      <section class="container bg-story6">
+      <section id="story6" class="container bg-story6">
         <article class="story2">
           <div class="video-container">
             <img src="images/story6.jpeg" alt="" />
@@ -185,6 +302,7 @@
               material was discovered, Dr. Lewis was forced to retire early.
               Andrew, on the other hand, faced expulsion and legal action for
               his role in the scandal.
+              <a href="./story6.html" class="read-more">Read More</a>
             </p>
           </div>
         </article>
@@ -196,6 +314,30 @@
       <p>Federal University of Technology Owerri</p>
     </footer>
 
+    <
+    <script>
+      // Add this to your existing script.js or in a new script tag
+      document.addEventListener("DOMContentLoaded", function () {
+        const navToggle = document.querySelector(".nav-toggle");
+        const navMenu = document.querySelector(".nav-menu");
+
+        navToggle.addEventListener("click", function () {
+          navToggle.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function (event) {
+          if (
+            !navMenu.contains(event.target) &&
+            !navToggle.contains(event.target)
+          ) {
+            navToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+          }
+        });
+      });
+    </script>
     <script src="/script.js"></script>
   </body>
 </html>

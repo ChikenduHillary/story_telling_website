@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Story 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="story.css" />
+    <style>
+      .no-comments {
+        color: gray;
+        font-style: italic;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .comment {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+      .comment-date {
+        font-size: 0.8em;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <video class="video story-image" controls>
+        <source
+          src="videos/What_are_the_Consequences_of_Academic_Misconduct_(720p).mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+      <p class="title">The Unseen Consequence</p>
+      <p>
+        Samantha had always been an exemplary student, consistently earning top
+        grades and accolades from her professors. Her academic prowess had
+        become a hallmark of her identity, and she took immense pride in her
+        ability to grasp complex concepts with ease. However, when she
+        encountered a particularly challenging physics course in her final year
+        of undergraduate studies, she began to feel the weight of her own
+        expectations. Despite her best efforts, Samantha found herself
+        struggling to keep up with the demanding coursework. The equations
+        seemed to dance on the page, refusing to yield to her usual
+        problem-solving strategies. Her grades began to slip, and with them, her
+        confidence. The pressure to perform was mounting, and Samantha felt like
+        she was drowning in a sea of uncertainty. One day, while browsing
+        online, Samantha stumbled upon a website that offered a tantalizing
+        solution to her problems. For a small fee, the service promised to
+        provide answers to any academic question, guaranteed to be accurate and
+        plagiarism-free. Desperate for a lifeline, Samantha succumbed to the
+        temptation, rationalizing that it was just a one-time mistake. She
+        submitted the purchased answers for her final project, feeling a mix of
+        relief and guilt. The project was a culmination of the entire course,
+        and Samantha knew that it would make or break her grade. When the
+        results were announced, Samantha was overjoyed to learn that she had
+        passed with flying colors. She had done it! She had overcome the
+        obstacle and proved to herself that she was still a top-notch student.
+        But little did Samantha know, her professor had set up a decoy
+        assignment, designed to catch students who were cheating. The
+        university's plagiarism detection software had flagged Samantha's
+        submission as suspicious, and a thorough investigation revealed that she
+        had indeed purchased the answers online. The consequences were swift and
+        severe. Samantha lost her scholarship, which had been her lifeline
+        throughout her undergraduate studies. The university also placed her on
+        academic probation, warning her that any further instances of cheating
+        would result in expulsion. But the worst was yet to come. Samantha's
+        name spread like wildfire through the academic community, and she found
+        herself blacklisted from graduate programs. The very thing she had been
+        working towards – a prestigious graduate degree – was now slipping
+        through her fingers.<br /><br />
+
+        As the news of her cheating scandal spread, Samantha's relationships
+        with her friends and family began to fray. They couldn't understand why
+        she had resorted to cheating, and they felt betrayed by her actions.
+        Samantha's parents, who had always been her rock, were devastated by the
+        news. They had always taught her the importance of honesty and
+        integrity, and they couldn't believe that she had thrown it all away.<br /><br />
+
+        Samantha's academic career, once a shining star, was now in tatters. She
+        had lost the trust of her professors, her peers, and even herself. The
+        consequences of her actions had been severe, and she was left to pick up
+        the pieces of her shattered dreams.<br /><br />
+
+        As she looked back on the events that had led her to this point,
+        Samantha realized that she had been blinded by her own ambition. She had
+        let her fear of failure cloud her judgment, and she had paid the price.
+        But as she gazed out at the ruins of her academic career, Samantha knew
+        that she had a choice to make. She could let this experience define her,
+        or she could use it as a catalyst for growth.<br /><br />
+
+        With a newfound sense of humility and determination, Samantha began to
+        rebuild. She started by apologizing to her professors and peers,
+        acknowledging her mistakes and taking responsibility for her actions.
+        She then set about redeeming herself, volunteering for academic
+        integrity initiatives and working to educate others about the dangers of
+        cheating.<br /><br />
+
+        It was a long and difficult road, but Samantha persevered. She learned
+        to forgive herself and to find a new sense of purpose. And as she
+        emerged from the ashes of her old self, Samantha discovered that she was
+        stronger, wiser, and more resilient than she had ever thought
+        possible.<br /><br />
+
+        The unseen consequence of Samantha's actions had been a wake-up call, a
+        reminder that success is not just about achieving grades or accolades,
+        but about living with integrity and honesty. And as she looked out at
+        the bright horizon of her future, Samantha knew that she would never
+        forget the lessons she had learned from her darkest hour
+      </p>
+    </section>
+
+    <section class="comments-section">
+      <h2>Comments</h2>
+      <div id="no-comments" class="no-comments">
+        Be the first to add a comment!
+      </div>
+      <div id="comments-container"></div>
+      <form id="comment-form">
+        <textarea
+          id="comment-input"
+          placeholder="Write your comment here..."
+        ></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+    </section>
+
+    <script>
+      document
+        .getElementById("comment-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          let commentInput = document
+            .getElementById("comment-input")
+            .value.trim();
+          let commentContainer = document.getElementById("comments-container");
+          let noCommentsMsg = document.getElementById("no-comments");
+
+          if (commentInput !== "") {
+            // Hide "no comments" message
+            if (noCommentsMsg) {
+              noCommentsMsg.style.display = "none";
+            }
+
+            // Create comment wrapper
+            let commentDiv = document.createElement("div");
+            commentDiv.classList.add("comment");
+
+            // Create comment text
+            let commentText = document.createElement("p");
+            commentText.textContent = commentInput;
+
+            // Create timestamp
+            let commentDate = document.createElement("span");
+            commentDate.classList.add("comment-date");
+            commentDate.textContent = getFormattedDate();
+
+            // Append elements
+            commentDiv.appendChild(commentText);
+            commentDiv.appendChild(commentDate);
+            commentContainer.appendChild(commentDiv);
+
+            // Clear input field
+            document.getElementById("comment-input").value = "";
+          }
+        });
+
+      function getFormattedDate() {
+        let now = new Date();
+        let options = {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        };
+        return now.toLocaleDateString("en-US", options);
+      }
+
+      function checkComments() {
+        let commentContainer = document.getElementById("comments-container");
+        let noCommentsMsg = document.getElementById("no-comments");
+
+        if (commentContainer.children.length === 0) {
+          noCommentsMsg.style.display = "block";
+        } else {
+          noCommentsMsg.style.display = "none";
+        }
+      }
+
+      checkComments(); // Run check on page load
+    </script>
+  </body>
+</html>
