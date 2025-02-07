@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chizoba's Phone Mishap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="story.css" />
+    <style>
+      .no-comments {
+        color: gray;
+        font-style: italic;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .comment {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+      .comment-date {
+        font-size: 0.8em;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <img src="/images/story8.jpeg" alt="Story 8 Image" class="story-image" />
+      <p class="title">Chizoba's Phone Mishap</p>
+      <p>
+        Chizoba was a bright and ambitious undergraduate student studying
+        mathematics. She had always excelled in the subject, and her lecturer,
+        Professor Ezeh, had praised her for her exceptional problem-solving
+        skills.<br /><br />
+
+        But during her final exams, Chizoba found herself struggling to recall a
+        crucial formula. She had studied hard for the exam, but her mind was a
+        blank. Panicked, she decided to sneak a peek at her phone, which she had
+        hidden under her desk.<br /><br />
+
+        Chizoba knew it was wrong to use her phone during the exam, but she felt
+        like she had no other choice. She quickly scrolled through her notes,
+        hoping to find the formula she needed. But as she was scrolling, she
+        accidentally clicked on a message from her friend, which made a loud
+        beep.<br /><br />
+
+        The invigilator, Mrs. Okafor, heard the beep and immediately walked over
+        to Chizoba's desk. "What's going on here?" she asked, her eyes
+        narrowing.<br /><br />
+
+        Chizoba was caught off guard. She stuttered and stammered, trying to
+        come up with an excuse. But Mrs. Okafor was having none of it.<br /><br />
+
+        "You're cheating, Chizoba," she said, her voice firm. "I'm afraid you're
+        going to have to leave the exam hall."<br /><br />
+
+        Chizoba was mortified. She had never cheated before, and she couldn't
+        believe she had been caught. She slowly gathered her things and left the
+        exam hall, feeling like she was walking into a nightmare.<br /><br />
+
+        The consequences of Chizoba's actions were severe. She was given a zero
+        on the exam, and her lecturer, Professor Ezeh, was disappointed in her.
+        Chizoba was devastated. She had let herself down, and she was ashamed of
+        what she had done.<br /><br />
+
+        But Chizoba learned a valuable lesson from her mistake. She realized
+        that cheating was not worth the risk and that she should have worked
+        harder to achieve her goals. She vowed never to cheat again and to
+        always uphold academic integrity.
+      </p>
+    </section>
+
+    <section class="comments-section">
+      <h2>Comments</h2>
+      <div id="no-comments" class="no-comments">
+        Be the first to add a comment!
+      </div>
+      <div id="comments-container"></div>
+      <form id="comment-form">
+        <textarea
+          id="comment-input"
+          placeholder="Write your comment here..."
+        ></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+    </section>
+
+    <script>
+      const STORY_ID = "story8"; // Unique identifier for this story
+
+      // Function to load comments
+      async function loadComments() {
+        try {
+          const response = await fetch(
+            `https://storyphere-backend.onrender.com/api/comments/${STORY_ID}`
+          );
+          const comments = await response.json();
+
+          const commentContainer =
+            document.getElementById("comments-container");
+          const noCommentsMsg = document.getElementById("no-comments");
+
+          commentContainer.innerHTML = "";
+
+          if (comments.length === 0) {
+            noCommentsMsg.style.display = "block";
+          } else {
+            noCommentsMsg.style.display = "none";
+
+            comments.forEach((comment) => {
+              const commentDiv = document.createElement("div");
+              commentDiv.classList.add("comment");
+
+              const commentText = document.createElement("p");
+              commentText.textContent = comment.content;
+
+              const commentDate = document.createElement("span");
+              commentDate.classList.add("comment-date");
+              commentDate.textContent = new Date(
+                comment.createdAt
+              ).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                hour12: true,
+              });
+
+              commentDiv.appendChild(commentText);
+              commentDiv.appendChild(commentDate);
+              commentContainer.appendChild(commentDiv);
+            });
+          }
+        } catch (error) {
+          console.error("Error loading comments:", error);
+        }
+      }
+
+      // Function to add a new comment
+      document
+        .getElementById("comment-form")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const commentInput = document
+            .getElementById("comment-input")
+            .value.trim();
+
+          if (commentInput !== "") {
+            try {
+              const response = await fetch(
+                "http://localhost:5000/api/comments",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    storyId: STORY_ID,
+                    content: commentInput,
+                  }),
+                }
+              );
+
+              if (response.ok) {
+                document.getElementById("comment-input").value = "";
+                await loadComments(); // Reload comments after posting
+              } else {
+                console.error("Failed to post comment");
+              }
+            } catch (error) {
+              console.error("Error posting comment:", error);
+            }
+          }
+        });
+
+      // Load comments when page loads
+      document.addEventListener("DOMContentLoaded", loadComments);
+    </script>
+  </body>
+</html>

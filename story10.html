@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nneoma's Redemption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="story.css" />
+    <style>
+      .no-comments {
+        color: gray;
+        font-style: italic;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .comment {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+      .comment-date {
+        font-size: 0.8em;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <img src="/images/story10.jpeg" alt="Story 1 Image" class="story-image" />
+      <p class="title">Nneoma's Redemption</p>
+      <p>
+        Nneoma was a struggling undergraduate student who had always found
+        mathematics challenging. Despite her best efforts, she just couldn't
+        seem to grasp the concepts. Feeling desperate, Nneoma decided to cheat
+        during an exam.<br /><br />
+
+        She carefully hid her notes and formulas in her pocket, hoping to sneak
+        a peek during the exam. But as she was answering a question, she
+        accidentally pulled out her entire notes instead of just the formula she
+        needed. The invigilator, Professor Ibe, saw her and immediately walked
+        over to her desk.<br /><br />
+
+        "Nneoma, what do you think you're doing?" he asked, his voice firm but
+        disappointed.<br /><br />
+
+        Nneoma was caught off guard. She stuttered and stammered, trying to come
+        up with an excuse. But Professor Ibe was having none of it.<br /><br />
+
+        "You're cheating, Nneoma," he said, shaking his head. "I'm afraid you're
+        going to have to leave the exam hall."<br /><br />
+
+        Nneoma was devastated. She knew she had let herself down, and she was
+        ashamed of what she had done. She slowly gathered her things and left
+        the exam hall, feeling like she was walking into a nightmare.<br /><br />
+
+        The consequences of Nneoma's actions were severe. She was given a zero
+        on the exam, and her lecturer, Professor Ibe, was disappointed in her.
+        Nneoma was devastated. She had let herself down, and she was ashamed of
+        what she had done.<br /><br />
+
+        But Nneoma's story didn't end there. As she reflected on her actions,
+        she realized that she had been struggling with mathematics for a long
+        time. She had been too proud to ask for help, and she had let her fear
+        of failure consume her.<br /><br />
+
+        Determined to turn her life around, Nneoma sought help from her
+        lecturer, Professor Ibe. She confessed her struggles with mathematics
+        and asked for his guidance. Professor Ibe was impressed by Nneoma's
+        honesty and willingness to learn.<br /><br />
+
+        He offered to tutor her personally, and Nneoma eagerly accepted. With
+        Professor Ibe's help, Nneoma began to grasp the concepts of mathematics.
+        She worked hard, attending extra classes and practicing problems every
+        day.<br /><br />
+
+        As the semester progressed, Nneoma's grades began to improve. She
+        started to enjoy mathematics, and she even began to see the beauty in
+        it. Nneoma's confidence grew, and she started to believe in herself.<br /><br />
+
+        When the final exams arrived, Nneoma was ready. She walked into the exam
+        hall with her head held high, knowing that she had worked hard and
+        earned her place there. She answered the questions with ease, using the
+        knowledge and skills she had acquired.<br /><br />
+
+        When the results were released, Nneoma was overjoyed. She had passed her
+        mathematics exam with flying colors, and she had even scored high grades
+        in her other subjects. Nneoma's redemption was complete. She had turned
+        her life around, and she had proved to herself that she was capable of
+        success.<br /><br />
+
+        Nneoma's story spread like wildfire through the campus, inspiring other
+        students to seek help and work hard. She became a symbol of redemption
+        and a reminder that it's never too late to turn your life around.
+      </p>
+    </section>
+
+    <section class="comments-section">
+      <h2>Comments</h2>
+      <div id="no-comments" class="no-comments">
+        Be the first to add a comment!
+      </div>
+      <div id="comments-container"></div>
+      <form id="comment-form">
+        <textarea
+          id="comment-input"
+          placeholder="Write your comment here..."
+        ></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+    </section>
+
+    <script>
+      const STORY_ID = "story10"; // Unique identifier for this story
+
+      // Function to load comments
+      async function loadComments() {
+        try {
+          const response = await fetch(
+            `https://storyphere-backend.onrender.com/api/comments/${STORY_ID}`
+          );
+          const comments = await response.json();
+
+          const commentContainer =
+            document.getElementById("comments-container");
+          const noCommentsMsg = document.getElementById("no-comments");
+
+          commentContainer.innerHTML = "";
+
+          if (comments.length === 0) {
+            noCommentsMsg.style.display = "block";
+          } else {
+            noCommentsMsg.style.display = "none";
+
+            comments.forEach((comment) => {
+              const commentDiv = document.createElement("div");
+              commentDiv.classList.add("comment");
+
+              const commentText = document.createElement("p");
+              commentText.textContent = comment.content;
+
+              const commentDate = document.createElement("span");
+              commentDate.classList.add("comment-date");
+              commentDate.textContent = new Date(
+                comment.createdAt
+              ).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                hour12: true,
+              });
+
+              commentDiv.appendChild(commentText);
+              commentDiv.appendChild(commentDate);
+              commentContainer.appendChild(commentDiv);
+            });
+          }
+        } catch (error) {
+          console.error("Error loading comments:", error);
+        }
+      }
+
+      // Function to add a new comment
+      document
+        .getElementById("comment-form")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const commentInput = document
+            .getElementById("comment-input")
+            .value.trim();
+
+          if (commentInput !== "") {
+            try {
+              const response = await fetch(
+                "http://localhost:5000/api/comments",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    storyId: STORY_ID,
+                    content: commentInput,
+                  }),
+                }
+              );
+
+              if (response.ok) {
+                document.getElementById("comment-input").value = "";
+                await loadComments(); // Reload comments after posting
+              } else {
+                console.error("Failed to post comment");
+              }
+            } catch (error) {
+              console.error("Error posting comment:", error);
+            }
+          }
+        });
+
+      // Load comments when page loads
+      document.addEventListener("DOMContentLoaded", loadComments);
+    </script>
+  </body>
+</html>

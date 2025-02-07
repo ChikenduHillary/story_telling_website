@@ -451,7 +451,11 @@ h2 {
 .bg-story3,
 .bg-story4,
 .bg-story5,
-.bg-story6 {
+.bg-story6,
+.bg-story7,
+.bg-story8,
+.bg-story9,
+.bg-story10 {
   background-size: cover;
   background-position: center;
   position: relative;
@@ -487,12 +491,29 @@ h2 {
   background-image: url("images/story6.jpg");
 }
 
+.bg-story7 {
+  background-image: url("images/story7.jpeg");
+}
+
+.bg-story9 {
+  color: #333;
+}
+
+.bg-story9 p {
+  background-color: transparent;
+  box-shadow: none;
+}
+
 .bg-story1::before,
 .bg-story2::before,
 .bg-story3::before,
 .bg-story4::before,
 .bg-story5::before,
-.bg-story6::before {
+.bg-story6::before,
+.bg-story7::before,
+.bg-story8::before,
+.bg-story9::before,
+.bg-story10::before {
   content: "";
   position: absolute;
   top: 0;
@@ -513,8 +534,10 @@ h2 {
 }
 
 .logo-container {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 44%;
 }
 
 footer {
@@ -543,6 +566,11 @@ section {
 }
 
 @media (max-width: 768px) {
+  .logo-container {
+    height: 30px;
+    width: 30px;
+  }
+
   .header h1 {
     font-size: medium;
   }

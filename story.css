@@ -84,3 +84,7 @@ button:hover {
   border-left: 4px solid #28a745; /* Changed to green */
   border-radius: 5px;
 }
+
+.story7 {
+  height: 100vh;
+}
