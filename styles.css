@@ -566,6 +566,10 @@ section {
 }
 
 @media (max-width: 768px) {
+  .professor-shotcut {
+    height: 120vh;
+  }
+
   .logo-container {
     height: 30px;
     width: 30px;
